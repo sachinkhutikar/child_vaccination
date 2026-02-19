@@ -19,7 +19,7 @@ BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 DB_PATH = os.path.join(BASE_DIR, "database.db")
 
 
-def create_app():
+def create_app(*args, **kwargs):
     app = Flask(__name__)
 
     # 🔥 DATABASE CONFIG
