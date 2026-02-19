@@ -86,9 +86,9 @@ def create_app(*args, **kwargs):
 
     return app
 
+app = create_app()
 
 # 🚀 RUN APP
 if __name__ == "__main__":
-    app = create_app()
     app.run(port=52451, debug=True)
 
