@@ -11,6 +11,5 @@ npm install recharts
 
 
 Backend
-pip install flask flask-cors flask-jwt-extended
-pip install flask-sqlalchemy flask-jwt-extended werkzeug
-pip install Flask Flask-Cors Flask-JWT-Extended Flask-SQLAlchemy python-dotenv Werkzeug
+pip install flask flask-cors flask-jwt-extended flask-sqlalchemy python-dotenv werkzeug gunicorn
+
