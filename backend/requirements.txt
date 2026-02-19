@@ -1,15 +1,7 @@
-Frontend
-python -m venv venv
-venv\Scripts\activate
-
-npm install react-router-dom axios
-npm install recharts
-
-
-
-
-
-
-Backend
-pip install flask flask-cors flask-jwt-extended flask-sqlalchemy python-dotenv werkzeug gunicorn
-
+Flask
+flask-cors
+flask-jwt-extended
+flask-sqlalchemy
+python-dotenv
+Werkzeug
+gunicorn
