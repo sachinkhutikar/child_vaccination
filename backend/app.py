@@ -36,14 +36,10 @@ def create_app(*args, **kwargs):
     # 🌍 CORS CONFIG (STRICT + SAFE)
     CORS(
     app,
-    resources={r"/api/*": {
-        "origins": [
-            "http://localhost:3000",
-            "https://child-vaccination-git-main-sachinkhutikars-projects.vercel.app"
-        ]
-    }},
-    supports_credentials=True
+    resources={r"/api/*": {"origins": "*"}},
+    supports_credentials=False
 )
+
 
 
     # 🔌 INIT EXTENSIONS
