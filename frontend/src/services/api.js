@@ -1,8 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://child-vaccination.onrender.com"/api
-,   // ✅ CHANGED
+  baseURL: "https://child-vaccination.onrender.com/api", // ✅ FIXED
 });
 
 API.interceptors.request.use((req) => {
