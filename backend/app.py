@@ -35,25 +35,23 @@ def create_app(*args, **kwargs):
 
     # 🌍 CORS CONFIG (STRICT + SAFE)
     CORS(
-        app,
-        resources={r"/api/*": {"origins": "http://localhost:3000"}},
-        supports_credentials=True,
-        allow_headers=["Content-Type", "Authorization"],
-        methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"]
-    )
+    app,
+    resources={r"/api/*": {
+        "origins": [
+            "http://localhost:3000",
+            "https://child-vaccination-git-main-sachinkhutikars-projects.vercel.app"
+        ]
+    }},
+    supports_credentials=True
+)
+
 
     # 🔌 INIT EXTENSIONS
     db.init_app(app)
     JWTManager(app)
 
     # 🔥 GLOBAL PREFLIGHT HANDLER (FIXES ADMIN DASHBOARD ISSUE)
-    @app.after_request
-    def after_request(response):
-        response.headers["Access-Control-Allow-Origin"] = "http://localhost:3000"
-        response.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization"
-        response.headers["Access-Control-Allow-Methods"] = "GET, POST, PUT, DELETE, OPTIONS"
-        return response
-
+   
     # 🧩 REGISTER BLUEPRINTS
     app.register_blueprint(auth, url_prefix="/api")
     app.register_blueprint(children, url_prefix="/api")
