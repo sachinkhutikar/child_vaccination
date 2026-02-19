@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://child-vaccination.onrender.com/api",
+  baseURL: "https://child-vaccination.onrender.com",
 });
 
 
