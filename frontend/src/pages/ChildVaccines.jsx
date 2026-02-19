@@ -8,6 +8,7 @@ function ChildVaccines() {
   const [vaccines, setVaccines] = useState([]);
   const [loading, setLoading] = useState(true);
 
+ useEffect(() => {
   const loadVaccines = () => {
     API.get(`/child-vaccines/${id}`)
       .then((res) => {
@@ -17,15 +18,19 @@ function ChildVaccines() {
       .catch(() => setLoading(false));
   };
 
-  useEffect(() => {
-    loadVaccines();
-  }, [id]);
+  loadVaccines();
+}, [id]);
 
-  const markCompleted = async (cvId) => {
-    await API.put(`/complete-vaccine/${cvId}`);
-    alert("Vaccine marked as completed");
-    loadVaccines();
-  };
+
+ const markCompleted = async (cvId) => {
+  await API.put(`/complete-vaccine/${cvId}`);
+  alert("Vaccine marked as completed");
+
+  // reload directly
+  const res = await API.get(`/child-vaccines/${id}`);
+  setVaccines(Array.isArray(res.data) ? res.data : []);
+};
+
 
   return (
     <Layout title="Child Vaccines">
