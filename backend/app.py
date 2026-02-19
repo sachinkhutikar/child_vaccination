@@ -35,11 +35,7 @@ def create_app(*args, **kwargs):
 
     # 🌍 CORS CONFIG (STRICT + SAFE)
     CORS(
-    app,
-    resources={r"/api/*": {"origins": "*"}},
-    supports_credentials=False
-)
-
+    CORS(app)
 
 
     # 🔌 INIT EXTENSIONS
