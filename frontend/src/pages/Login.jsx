@@ -64,7 +64,7 @@ function Login() {
               color: "#666"
             }}
           >
-            — By Sachin Khutikar
+            — By Saniya khedekar
           </li>
         </ul>
       </div>
